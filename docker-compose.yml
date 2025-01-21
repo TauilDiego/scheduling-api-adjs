@@ -1,0 +1,12 @@
+services:
+  scheduler-database:
+    image: postgres:latest
+    container_name: scheduler-database
+    environment:
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_DATABASE}
+    volumes:
+      - ./db/dev:/var/lib/postgresql/data
+    ports:
+      - "4568:5432"
